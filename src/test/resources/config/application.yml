@@ -17,18 +17,21 @@ eureka:
   client:
     enabled: false
   instance:
-    appname: innovarePOC
-    instanceId: innovarePOC:${spring.application.instance-id:${random.value}}
+    appname: myApp1
+    instanceId: myApp1:${spring.application.instance-id:${random.value}}
 
 spring:
+  profiles:
+    # Uncomment the following line to enable tests against production database type rather than H2, using Testcontainers
+    #active: testcontainers
   application:
-    name: innovarePOC
+    name: myApp1
   cloud:
     config:
       enabled: false
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:mem:innovarepoc;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:myapp1;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     name:
     username:
     password:
@@ -68,13 +71,13 @@ spring:
     basename: i18n/messages
   task:
     execution:
-      thread-name-prefix: innovare-poc-task-
+      thread-name-prefix: my-app-1-task-
       pool:
         core-size: 1
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: innovare-poc-scheduling-
+      thread-name-prefix: my-app-1-scheduling-
       pool:
         size: 1
   thymeleaf:
@@ -92,7 +95,7 @@ server:
 
 jhipster:
   clientApp:
-    name: 'innovarePocApp'
+    name: 'myApp1App'
   logging:
     # To test json console appender
     use-json-format: false

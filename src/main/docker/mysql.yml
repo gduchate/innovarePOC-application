@@ -1,13 +1,13 @@
 # This configuration is intended for development purpose, it's **your** responsibility to harden it for production
 version: '3.8'
 services:
-  innovarepoc-mysql:
+  myapp1-mysql:
     image: mysql:8.0.28
     # volumes:
-    #   - ~/volumes/jhipster/innovarePOC/mysql/:/var/lib/mysql/
+    #   - ~/volumes/jhipster/myApp1/mysql/:/var/lib/mysql/
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-      - MYSQL_DATABASE=innovarepoc
+      - MYSQL_DATABASE=myapp1
     # If you want to expose these ports outside your dev PC,
     # remove the "127.0.0.1:" prefix
     ports:
